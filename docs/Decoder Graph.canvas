@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"23e587e5543509fe","type":"text","text":"Read the first 8 bits and write the value in `file_version: u8`","x":-221,"y":-360,"width":381,"height":80},
+		{"id":"87f98ed013286140","type":"text","text":"Start pointer at the beginning of the file","x":-221,"y":-480,"width":381,"height":80},
+		{"id":"a61cd60afafabafe","type":"text","text":"Initialize `mut palette: ColorPalette`","x":-221,"y":440,"width":381,"height":60},
+		{"id":"ab9dc7e057577617","type":"text","text":"`id_count` times, read the next 24 bits and write the value in `temp_color_bits: u32`. Using that value, push to `palette.palette_data` a `Color` value set to the following: \n` 0: (temp_color_bits >> 16) as u8`\n`1: (temp_color_bits >> 8) as u8`\n`2: temp_color_bits as u8`","x":-221,"y":540,"width":381,"height":260},
+		{"id":"a6c5da255e121662","type":"text","text":"Read the next 16 bits and write the value in `height: u16`","x":-221,"y":-40,"width":381,"height":78},
+		{"id":"181c083ac7e91892","type":"text","text":"Read the next 16 bits and write the value in `height: u16`","x":-221,"y":80,"width":381,"height":80},
+		{"id":"6f2fa4e26c834619","type":"text","text":"Read the next 32 bits and write the value in `id_count: u32`","x":-221,"y":200,"width":381,"height":80},
+		{"id":"35b9ed7d4d4afec4","type":"text","text":"Take `32 - id_count.leading_zeroes()` to get `id_len: u32`","x":-221,"y":320,"width":381,"height":80},
+		{"id":"f339b5538147cbd5","type":"text","text":"Check if `file_version == DECODER_VERSION`","x":-241,"y":-240,"width":421,"height":60},
+		{"id":"3a1593e812cdc18f","type":"text","text":"False","x":225,"y":-240,"width":104,"height":60},
+		{"id":"13cbaeee55681e89","type":"text","text":"True","x":-82,"y":-140,"width":104,"height":60},
+		{"id":"d48195e30f747a56","type":"text","text":"Panic with a a message `\"Incompatible decoder version. Decoder version {}, file version {}\", DECODER_VERSION, file_version`","x":380,"y":-260,"width":630,"height":100},
+		{"id":"96377e7d7e69e6b6","type":"text","text":"Init `mut image: Image` and set the width, height, and palette fields","x":-221,"y":850,"width":381,"height":100},
+		{"id":"83bcd6a1fbfa47dc","type":"text","text":"`image.get_size()` times, read the next `id_len` bits and push the value into `image.image_data`","x":-221,"y":990,"width":381,"height":120}
+	],
+	"edges":[
+		{"id":"f8f2cd7dccf0a358","fromNode":"a6c5da255e121662","fromSide":"bottom","toNode":"181c083ac7e91892","toSide":"top"},
+		{"id":"f4d9d8ac1e57e18f","fromNode":"181c083ac7e91892","fromSide":"bottom","toNode":"6f2fa4e26c834619","toSide":"top"},
+		{"id":"cfb72e1a6f50f166","fromNode":"6f2fa4e26c834619","fromSide":"bottom","toNode":"35b9ed7d4d4afec4","toSide":"top"},
+		{"id":"4c805c2bf2092e1c","fromNode":"35b9ed7d4d4afec4","fromSide":"bottom","toNode":"a61cd60afafabafe","toSide":"top"},
+		{"id":"af003b016113185d","fromNode":"a61cd60afafabafe","fromSide":"bottom","toNode":"ab9dc7e057577617","toSide":"top"},
+		{"id":"fb277790b6eef2af","fromNode":"87f98ed013286140","fromSide":"bottom","toNode":"23e587e5543509fe","toSide":"top"},
+		{"id":"6b81302cf07d66a1","fromNode":"23e587e5543509fe","fromSide":"bottom","toNode":"f339b5538147cbd5","toSide":"top"},
+		{"id":"c601a3981c5fb296","fromNode":"96377e7d7e69e6b6","fromSide":"bottom","toNode":"83bcd6a1fbfa47dc","toSide":"top"},
+		{"id":"28def81a0423af42","fromNode":"f339b5538147cbd5","fromSide":"bottom","toNode":"13cbaeee55681e89","toSide":"top"},
+		{"id":"44c0d6d0f50c8b43","fromNode":"13cbaeee55681e89","fromSide":"bottom","toNode":"a6c5da255e121662","toSide":"top"},
+		{"id":"11d720ed7a601c1a","fromNode":"f339b5538147cbd5","fromSide":"right","toNode":"3a1593e812cdc18f","toSide":"left"},
+		{"id":"130df2425c96f9db","fromNode":"3a1593e812cdc18f","fromSide":"right","toNode":"d48195e30f747a56","toSide":"left"},
+		{"id":"966f142dfe078d57","fromNode":"ab9dc7e057577617","fromSide":"bottom","toNode":"96377e7d7e69e6b6","toSide":"top"}
+	]
+}
