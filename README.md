@@ -1,4 +1,4 @@
 # Hadal Codec
-A lossless image codec made to experiment with Rust
+An image codec and lossless compression algorithm made to experiment with Rust
 
 Currently designing the specificaton itself
